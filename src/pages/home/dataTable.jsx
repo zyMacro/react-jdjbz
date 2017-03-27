@@ -14,8 +14,8 @@ class DataTable extends React.Component{
 		super();
 		this.state={
 			steps:0,
-			rank:'',
-			rankSchool:'',
+			rank:0,
+			rankSchool:0,
 			sleepStartTime:'',
 			sleepEndTime:'',
 			deepSleepTime:'',
@@ -23,8 +23,16 @@ class DataTable extends React.Component{
 		}
 	}
 	request(){$.post('../public/basic_data.php',data=>{
-		this.setState({steps:data.steps,rank:data.rank,numPlayers:data.numPlayers,rankSchool:data.rankSchool,numPlayersSchool:data.numPlayersSchool,sleepStartTime:data.sleepStartTime,
-			sleepEndTime:data.sleepEndTime,deepSleepTime:data.deepSleepTime,shallowSleepTime:data.shallowSleepTime});
+		this.setState({
+			steps:data.steps,
+			rank:data.rank,
+			numPlayers:data.numPlayers,
+			rankSchool:data.rankSchool,
+			numPlayersSchool:data.numPlayersSchool,
+			sleepStartTime:data.sleepStartTime,
+			sleepEndTime:data.sleepEndTime,
+			deepSleepTime:data.deepSleepTime,
+			shallowSleepTime:data.shallowSleepTime});
 	         },'json');
 	}
 	// method2 
@@ -36,13 +44,13 @@ class DataTable extends React.Component{
 	}
 	render(){
 		var data1=[{key:'1',steps:this.state.steps,rank:this.state.rank+'/'+this.state.numPlayers,rankSchool:this.state.rankSchool+'/'+this.state.numPlayersSchool}];
-		// var data2=[{key:'1',sleepStartTime:this.state.sleepStartTime,sleepEndTime:this.state.sleepEndTime,deepSleepTime:this.state.deepSleepTime,shallowSleepTime:this.state.shallowSleepTime}];
+		var data2=[{key:'1',sleepStartTime:this.state.sleepStartTime,sleepEndTime:this.state.sleepEndTime,deepSleepTime:this.state.deepSleepTime,shallowSleepTime:this.state.shallowSleepTime}];
 		return <Tabs onChange={callback} type='card'>
 		<TabPane tab='运动' key='1'>
         <Table columns={columns1} dataSource={data1} size='middle' />
 		</TabPane>
 		<TabPane tab='睡眠' key='2'>
-		<Table columns={columns1} dataSource={data1} size='middle' />
+		<Table columns={columns2} dataSource={data2} size='middle' />
 		</TabPane>
 		<TabPane tab='饮食' key='3'>饮食</TabPane>
 		</Tabs>

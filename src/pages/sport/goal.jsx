@@ -1,15 +1,16 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-var Highcharts = require('highcharts');
-require('highcharts/modules/exporting')(Highcharts);
-require('highcharts/js/highcharts-more')(ReactHighcharts.Highcharts);
-import ReactHighcharts from 'react-highcharts'
+// var Highcharts = require('highcharts');
+// require('highcharts/modules/exporting')(Highcharts);
+// require('highcharts/js/highcharts-more')(ReactHighcharts.Highcharts);
+// import ReactHighcharts from 'react-highcharts'
 
-// var ReactHighcharts = require('react-highcharts');
-// var HighchartsMore = require('highcharts-more');
-// HighchartsMore(ReactHighcharts.Highcharts);
-// var HighchartsExporting = require('highcharts-exporting');
-// HighchartsExporting(ReactHighcharts.Highcharts);
+var ReactHighcharts = require('react-highcharts');
+var HighchartsMore = require('highcharts-more');
+HighchartsMore(ReactHighcharts.Highcharts);
+var HighchartsExporting = require('highcharts-exporting');
+HighchartsExporting(ReactHighcharts.Highcharts);
+require('highcharts/modules/solid-gauge.js')(ReactHighcharts.Highcharts);
 // import ReactHighcharts from 'react-highcharts'
 
 class Goal extends React.Component{
@@ -40,7 +41,7 @@ class Goal extends React.Component{
             startAngle: -90,
             endAngle: 90,
             background: {
-                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+                backgroundColor: (ReactHighcharts.theme && ReactHighcharts.theme.background2) || '#EEE',
                 innerRadius: '60%',
                 outerRadius: '100%',
                 shape: 'arc'
@@ -50,6 +51,16 @@ class Goal extends React.Component{
             enabled: false
         },
         yAxis: {
+            min: 0,
+            max: [this.state.goal],
+            // max: [10000],
+            title: {
+                text: '今日目标完成度',
+                style:{
+                    color:'black',
+                    fontSize:'24px'
+                }
+            },
             stops: [
                 [0.1, '#55BF3B'], // green
                 [0.5, '#DDDF0D'], // yellow
@@ -83,7 +94,7 @@ class Goal extends React.Component{
             data: [this.state.steps],
             dataLabels: {
                 format: '<div style="text-align:center"><span style="font-size:25px;color:' +
-                ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+                ((ReactHighcharts.theme && ReactHighcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
                 '<span style="font-size:12px;color:silver">步</span></div>'
             },
             tooltip: {

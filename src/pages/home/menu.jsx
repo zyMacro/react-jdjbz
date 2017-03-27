@@ -26,7 +26,7 @@ class MenuList extends React.Component{
 				<MenuItem>
 				</MenuItem>
 			</SubMenu>
-			<SubMenu title={<span><Icon type="appstore"/><span><Link to='/Sport'>运动</Link></span></span>}>
+			<SubMenu title={<span><Icon type="appstore"/><span><Link to='/sport'>运动</Link></span></span>}>
 				<MenuItem><Link to="/Rank">排名</Link></MenuItem>
 				<MenuItem><Link to="/Walk">健步</Link></MenuItem>
 				<MenuItem><Link to="/Run">跑步</Link></MenuItem>
