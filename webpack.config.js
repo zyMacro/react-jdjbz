@@ -8,13 +8,14 @@ module.exports = {
         common: [
             "react-dom",
             "react-router-dom",
+            "jquery"
         ]
     },
 
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: '[name].js',
-        publicPath: '/'
+        // publicPath: './'
     },
 
     devServer: {
@@ -40,12 +41,12 @@ module.exports = {
             }, {
                 test: /\.(css|scss|less)$/,
                 loader: "style-loader!css-loader!postcss-loader!sass-loader!less-loader"
-            }
+            },
         ]
     },
 
-    // devtool: 'hidden-source-map',
-    devtool: 'eval',
+    devtool: 'hidden-source-map',
+    // devtool: 'eval',
     watch: true,
     performance: {
         hints: false
@@ -58,6 +59,7 @@ module.exports = {
             __PRO__: false, // 生产环境
         }),
         new HtmlWebpackPlugin({template: './index.html'}),
+        new webpack.ProvidePlugin({"$": "jquery"}),
         new webpack.optimize.CommonsChunkPlugin({names: ['common'], minChunks: Infinity}),
         new webpack.BannerPlugin("Copyright HONGYUANZHANG inc."),
 
