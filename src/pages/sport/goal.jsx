@@ -34,7 +34,14 @@ class Goal extends React.Component{
             height:200,
             type: 'solidgauge'
         },
-        title: '今日目标完成度',
+        title:{
+            text:'今日目标完成度',
+            labels:{
+                style:{
+                    fontSize:'30px'
+                }
+            }
+        } ,
         pane: {
             center: ['50%', '100%'],
             size: '140%',
@@ -53,14 +60,13 @@ class Goal extends React.Component{
         yAxis: {
             min: 0,
             max: [this.state.goal],
-            // max: [10000],
-            title: {
-                text: '今日目标完成度',
-                style:{
-                    color:'black',
-                    fontSize:'24px'
-                }
-            },
+            // title: {
+            //     // text: '今日目标完成度',
+            //     style:{
+            //         color:'black',
+            //         fontSize:'24px'
+            //     }
+            // },
             stops: [
                 [0.1, '#55BF3B'], // green
                 [0.5, '#DDDF0D'], // yellow

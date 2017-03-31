@@ -1,22 +1,20 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import MenuList from '../home/menu.jsx'
 import Goal from './goal.jsx'
 import DataTable from '../home/dataTable.jsx'
 import WeekStepsSleep from './weekStepsSleep.jsx'
+import Average from './average.jsx'
 
 
 class Sport extends React.Component{
 	render(){
 		return <div>
-        <MenuList></MenuList>
-        <DataTable></DataTable>
+		<DataTable></DataTable>
+		<Average></Average>
         <Goal></Goal>
         <WeekStepsSleep></WeekStepsSleep>
-
 		</div>
 	}
-
 }
 export default Sport
 	// 

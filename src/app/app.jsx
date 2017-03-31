@@ -16,16 +16,12 @@ import Sport from '../pages/sport'
 import Diet from '../pages/diet'
 import Health from '../pages/health'
 import Log from '../pages/log'
-
+import MenuList from '../pages/home/menu.jsx'
 
 
 
 const BasicExample = () => (
-  <Router>
-    <div>
-    <Route exact path='/' component={Home} />
-   <Route exact path='/sport' component={Sport} />
-    </div>
-  </Router>
+<MenuList></MenuList>
 )
 render(<BasicExample/>, document.getElementById('app'));
+   // <Route exact path='/sport' component={Sport} />

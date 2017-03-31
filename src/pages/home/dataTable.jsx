@@ -47,12 +47,12 @@ class DataTable extends React.Component{
 		var data2=[{key:'1',sleepStartTime:this.state.sleepStartTime,sleepEndTime:this.state.sleepEndTime,deepSleepTime:this.state.deepSleepTime,shallowSleepTime:this.state.shallowSleepTime}];
 		return <Tabs onChange={callback} type='card'>
 		<TabPane tab='运动' key='1'>
-        <Table columns={columns1} dataSource={data1} size='middle' />
+        <Table pagination={false} columns={columns1} dataSource={data1} size='middle' />
 		</TabPane>
 		<TabPane tab='睡眠' key='2'>
-		<Table columns={columns2} dataSource={data2} size='middle' />
+		<Table pagination={false} columns={columns2} dataSource={data2} size='middle' />
 		</TabPane>
-		<TabPane tab='饮食' key='3'>饮食</TabPane>
+		<TabPane pagination={false} tab='饮食' key='3'>饮食</TabPane>
 		</Tabs>
 	}
 }

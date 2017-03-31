@@ -21,12 +21,13 @@
 	$userid = $_SESSION['userId'];
 	$name=$_SESSION['name'];
 	$time = date('A');
+	$school=$_SESSION['school'];
 	if($time == "AM")
 	    $greet = "早上好";
 	else
 	    $greet = "下午好";
 
-	$account_info=Array('xiaomiid'=>$userid,'name'=>$name,'time'=>$greet);
+	$account_info=Array('xiaomiid'=>$userid,'name'=>$name,'time'=>$greet,'school'=>$school);
 	 $account_info_=json_encode($account_info);
 	 echo $account_info_;
 ?>

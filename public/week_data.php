@@ -457,7 +457,7 @@ if($_SESSION['login'] == 'JA'){
 
 $jaccount = $_SESSION['jaccount'];
 $userid = $_SESSION['userId'];
-
+$week_days_abbr = array('一', '二', '三', '四', '五', '六', '日');
 $date = date('Y-m-d');
 
 $steps_array=array();   //接收过去一周每天的steps

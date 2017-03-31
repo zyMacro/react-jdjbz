@@ -607,7 +607,9 @@ $filename = "$jdjbzDataPath/$userid/$date.txt";
     	'sleepEndTime'=>date('H:i:s', $sleepEndTime),
     	'deepSleepTime'=>$deepSleepTime,
     	'shallowSleepTime'=>$shallowSleepTime,
-    	'stepsGoal'=>$steps_goal,local_ranking_from_file
+    	'stepsGoal'=>$steps_goal,
+    	'rankList'=>$ranklist,
+    	'rankListSchool'=>$ranklist_school,
     	);
         $data=json_encode($data);
     // echo $ranklist_school;

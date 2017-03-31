@@ -3616,16 +3616,16 @@ var DataTable = function (_React$Component) {
 				_React2.default.createElement(
 					TabPane,
 					{ tab: '\u8FD0\u52A8', key: '1' },
-					_React2.default.createElement(_table2.default, { columns: columns1, dataSource: data1, size: 'middle' })
+					_React2.default.createElement(_table2.default, { pagination: false, columns: columns1, dataSource: data1, size: 'middle' })
 				),
 				_React2.default.createElement(
 					TabPane,
 					{ tab: '\u7761\u7720', key: '2' },
-					_React2.default.createElement(_table2.default, { columns: columns2, dataSource: data2, size: 'middle' })
+					_React2.default.createElement(_table2.default, { pagination: false, columns: columns2, dataSource: data2, size: 'middle' })
 				),
 				_React2.default.createElement(
 					TabPane,
-					{ tab: '\u996E\u98DF', key: '3' },
+					{ pagination: false, tab: '\u996E\u98DF', key: '3' },
 					'\u996E\u98DF'
 				)
 			);
@@ -3700,6 +3700,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import {Switch} from 'react-router'
 
 var SubMenu = _menu2.default.SubMenu;
 var MenuItem = _menu2.default.Item;
@@ -3725,24 +3726,20 @@ var MenuList = function (_React$Component) {
 					_React2.default.createElement(
 						_menu2.default,
 						{ mode: 'horizontal', theme: 'dark', style: { width: '100%' } },
-						_React2.default.createElement(
-							SubMenu,
-							{ title: _React2.default.createElement(
+						_React2.default.createElement(SubMenu, { title: _React2.default.createElement(
+								'span',
+								null,
+								_React2.default.createElement(_icon2.default, { type: 'appstore' }),
+								_React2.default.createElement(
 									'span',
 									null,
-									_React2.default.createElement(_icon2.default, { type: 'appstore' }),
 									_React2.default.createElement(
-										'span',
-										null,
-										_React2.default.createElement(
-											_reactRouterDom.Link,
-											{ to: '/' },
-											'\u9996\u9875'
-										)
+										_reactRouterDom.Link,
+										{ to: '/' },
+										'\u9996\u9875'
 									)
-								) },
-							_React2.default.createElement(MenuItem, null)
-						),
+								)
+							) }),
 						_React2.default.createElement(
 							SubMenu,
 							{ title: _React2.default.createElement(
@@ -3764,7 +3761,7 @@ var MenuList = function (_React$Component) {
 								null,
 								_React2.default.createElement(
 									_reactRouterDom.Link,
-									{ to: '/Rank' },
+									{ to: '/rank' },
 									'\u6392\u540D'
 								)
 							),
@@ -3773,7 +3770,7 @@ var MenuList = function (_React$Component) {
 								null,
 								_React2.default.createElement(
 									_reactRouterDom.Link,
-									{ to: '/Walk' },
+									{ to: '/walk' },
 									'\u5065\u6B65'
 								)
 							),
@@ -3782,45 +3779,37 @@ var MenuList = function (_React$Component) {
 								null,
 								_React2.default.createElement(
 									_reactRouterDom.Link,
-									{ to: '/Run' },
+									{ to: '/run' },
 									'\u8DD1\u6B65'
 								)
 							)
 						),
-						_React2.default.createElement(
-							SubMenu,
-							{ title: _React2.default.createElement(
+						_React2.default.createElement(SubMenu, { title: _React2.default.createElement(
+								'span',
+								null,
+								_React2.default.createElement(_icon2.default, { type: 'appstore' }),
+								_React2.default.createElement(
 									'span',
 									null,
-									_React2.default.createElement(_icon2.default, { type: 'appstore' }),
-									_React2.default.createElement(
-										'span',
-										null,
-										'\u996E\u98DF'
-									)
-								) },
-							_React2.default.createElement(MenuItem, null)
-						),
-						_React2.default.createElement(
-							SubMenu,
-							{ title: _React2.default.createElement(
+									'\u996E\u98DF'
+								)
+							) }),
+						_React2.default.createElement(SubMenu, { title: _React2.default.createElement(
+								'span',
+								null,
+								_React2.default.createElement(_icon2.default, { type: 'appstore' }),
+								_React2.default.createElement(
 									'span',
 									null,
-									_React2.default.createElement(_icon2.default, { type: 'appstore' }),
-									_React2.default.createElement(
-										'span',
-										null,
-										'\u5065\u5EB7'
-									)
-								) },
-							_React2.default.createElement(MenuItem, null)
-						)
+									'\u5065\u5EB7'
+								)
+							) })
 					),
-					_React2.default.createElement(_reactRouterDom.Route, { exact: true, path: '../home/index.jsx', component: _home2.default }),
-					_React2.default.createElement(_reactRouterDom.Route, { exact: true, path: '../sport/sport.jsx', component: _sport2.default }),
-					_React2.default.createElement(_reactRouterDom.Route, { exact: true, path: '../sport/rank.jsx', component: _rank2.default }),
-					_React2.default.createElement(_reactRouterDom.Route, { exact: true, path: '../sport/walk.jsx', component: _walk2.default }),
-					_React2.default.createElement(_reactRouterDom.Route, { exact: true, path: '../sport/run.jsx', component: _run2.default })
+					_React2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _home2.default }),
+					_React2.default.createElement(_reactRouterDom.Route, { path: '/sport', component: _sport2.default }),
+					_React2.default.createElement(_reactRouterDom.Route, { path: '/rank', component: _rank2.default }),
+					_React2.default.createElement(_reactRouterDom.Route, { path: '/walk', component: _walk2.default }),
+					_React2.default.createElement(_reactRouterDom.Route, { path: '/run', component: _run2.default })
 				)
 			);
 		}
@@ -5672,10 +5661,6 @@ var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _menu = __webpack_require__(99);
-
-var _menu2 = _interopRequireDefault(_menu);
-
 var _goal = __webpack_require__(584);
 
 var _goal2 = _interopRequireDefault(_goal);
@@ -5687,6 +5672,10 @@ var _dataTable2 = _interopRequireDefault(_dataTable);
 var _weekStepsSleep = __webpack_require__(590);
 
 var _weekStepsSleep2 = _interopRequireDefault(_weekStepsSleep);
+
+var _average = __webpack_require__(592);
+
+var _average2 = _interopRequireDefault(_average);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5711,8 +5700,8 @@ var Sport = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_menu2.default, null),
 				_react2.default.createElement(_dataTable2.default, null),
+				_react2.default.createElement(_average2.default, null),
 				_react2.default.createElement(_goal2.default, null),
 				_react2.default.createElement(_weekStepsSleep2.default, null)
 			);
@@ -13339,21 +13328,17 @@ var _log = __webpack_require__(221);
 
 var _log2 = _interopRequireDefault(_log);
 
+var _menu = __webpack_require__(99);
+
+var _menu2 = _interopRequireDefault(_menu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BasicExample = function BasicExample() {
-  return _react2.default.createElement(
-    _reactRouterDom.HashRouter,
-    null,
-    _react2.default.createElement(
-      'div',
-      null,
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _home2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/sport', component: _sport2.default })
-    )
-  );
+  return _react2.default.createElement(_menu2.default, null);
 };
 (0, _reactDom.render)(_react2.default.createElement(BasicExample, null), document.getElementById('app'));
+// <Route exact path='/sport' component={Sport} />
 
 /***/ }),
 /* 280 */
@@ -13484,10 +13469,6 @@ var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _menu = __webpack_require__(99);
-
-var _menu2 = _interopRequireDefault(_menu);
-
 var _ajax = __webpack_require__(161);
 
 var _ajax2 = _interopRequireDefault(_ajax);
@@ -13523,7 +13504,6 @@ var Home = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_menu2.default, null),
         _react2.default.createElement(_greeting2.default, null),
         _react2.default.createElement(_dataTable2.default, null)
       );
@@ -13556,10 +13536,6 @@ var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _menu = __webpack_require__(99);
-
-var _menu2 = _interopRequireDefault(_menu);
-
 var _ajax = __webpack_require__(161);
 
 var _ajax2 = _interopRequireDefault(_ajax);
@@ -13595,7 +13571,6 @@ var Home = function (_Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_menu2.default, null),
         _react2.default.createElement(_greeting2.default, null),
         _react2.default.createElement(_dataTable2.default, null)
       );
@@ -13696,6 +13671,14 @@ var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _rankMenu = __webpack_require__(593);
+
+var _rankMenu2 = _interopRequireDefault(_rankMenu);
+
+var _rankAll = __webpack_require__(596);
+
+var _rankAll2 = _interopRequireDefault(_rankAll);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13719,7 +13702,8 @@ var Rank = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				'Rank'
+				_react2.default.createElement(_rankMenu2.default, null),
+				_react2.default.createElement(_rankAll2.default, null)
 			);
 		}
 	}]);
@@ -13728,6 +13712,9 @@ var Rank = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Rank;
+// <RankAverage></RankAverage>
+// 	<RankSchoolAll></RankSchoolAll>
+// 	<RankSchoolAverage></RankSchoolAverage>
 
 /***/ }),
 /* 286 */
@@ -30007,8 +29994,6 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -30060,14 +30045,19 @@ var Goal = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _yAxis;
-
             var config = {
                 chart: {
                     height: 200,
                     type: 'solidgauge'
                 },
-                title: '今日目标完成度',
+                title: {
+                    text: '今日目标完成度',
+                    labels: {
+                        style: {
+                            fontSize: '30px'
+                        }
+                    }
+                },
                 pane: {
                     center: ['50%', '100%'],
                     size: '140%',
@@ -30083,17 +30073,16 @@ var Goal = function (_React$Component) {
                 tooltip: {
                     enabled: false
                 },
-                yAxis: (_yAxis = {
+                yAxis: {
                     min: 0,
                     max: [this.state.goal],
-                    // max: [10000],
-                    title: {
-                        text: '今日目标完成度',
-                        style: {
-                            color: 'black',
-                            fontSize: '24px'
-                        }
-                    },
+                    // title: {
+                    //     // text: '今日目标完成度',
+                    //     style:{
+                    //         color:'black',
+                    //         fontSize:'24px'
+                    //     }
+                    // },
                     stops: [[0.1, '#55BF3B'], // green
                     [0.5, '#DDDF0D'], // yellow
                     [0.9, '#DF5353'] // red
@@ -30101,12 +30090,14 @@ var Goal = function (_React$Component) {
                     lineWidth: 0,
                     minorTickInterval: null,
                     tickPixelInterval: 400,
-                    tickWidth: 0
-                }, _defineProperty(_yAxis, 'title', {
-                    y: -70
-                }), _defineProperty(_yAxis, 'labels', {
-                    y: 16
-                }), _yAxis),
+                    tickWidth: 0,
+                    title: {
+                        y: -70
+                    },
+                    labels: {
+                        y: 16
+                    }
+                },
                 plotOptions: {
                     solidgauge: {
                         dataLabels: {
@@ -30705,7 +30696,7 @@ null===f.verticalAlign&&(f.verticalAlign=45>a||315<a?"bottom":135<a&&225>a?"top"
 /* WEBPACK VAR INJECTION */(function($) {
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -30734,192 +30725,218 @@ HighchartsExporting(ReactHighcharts.Highcharts);
 __webpack_require__(588)(ReactHighcharts.Highcharts);
 
 var WeekStepsSleep = function (_React$Component) {
-    _inherits(WeekStepsSleep, _React$Component);
+  _inherits(WeekStepsSleep, _React$Component);
 
-    function WeekStepsSleep() {
-        _classCallCheck(this, WeekStepsSleep);
+  function WeekStepsSleep() {
+    _classCallCheck(this, WeekStepsSleep);
 
-        var _this = _possibleConstructorReturn(this, (WeekStepsSleep.__proto__ || Object.getPrototypeOf(WeekStepsSleep)).call(this));
+    var _this = _possibleConstructorReturn(this, (WeekStepsSleep.__proto__ || Object.getPrototypeOf(WeekStepsSleep)).call(this));
 
-        _this.state = {
-            data: {}
-        };
-        return _this;
+    _this.state = {
+      data: { stepsArray: [] }
+    };
+
+    return _this;
+  }
+
+  _createClass(WeekStepsSleep, [{
+    key: 'request',
+    value: function request() {
+      var _this2 = this;
+
+      $.post('../public/week_data.php', function (data) {
+        _this2.setState({
+          data: data
+        });
+      }, 'json');
     }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.request();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      // 	for(let $j=0;$j<this.state.weekArray.length;$j++){              //利用匿名函数模仿块级作用域
+      // 	xAxisArray[$j]=this.state.weekArray[$j]+'<br>'+'(星期'+this.state.dataArray[$j]+')';
+      // }
+      // this.setState({
+      var data = this.state.data;
 
-    _createClass(WeekStepsSleep, [{
-        key: 'request',
-        value: function request() {
-            var _this2 = this;
+      var sleepHourTotal = [];
+      var topSchoolPersent = [];
+      var topTotalPersent = [];
+      var xAxisArray = [];
+      // console.log(data);
 
-            $.post('../public/week_data.php', function (data) {
-                _this2.setState({
-                    data: data
+      for (var $j = 0; $j < data.stepsArray.length; $j++) {
+        topSchoolPersent[$j] = Number((data.rankSchoolArray[$j] / data.numPlayersSchoolArray[$j] * 100).toFixed(2));
+        topTotalPersent[$j] = Number((data.rankUnivArray[$j] / data.numPlayersArray[$j] * 100).toFixed(2));
+      }
+      for (var $i = 0; $i < data.stepsArray.length; $i++) {
+        sleepHourTotal[$i] = Number(((data.sleepHourArray[$i] * 60 + data.sleepMinArray[$i]) / 60).toFixed(2));
+      }
 
-                });
-            }, 'json');
-        }
-    }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            this.request();
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            // 	for(let $j=0;$j<this.state.weekArray.length;$j++){              //利用匿名函数模仿块级作用域
-            // 	xAxisArray[$j]=this.state.weekArray[$j]+'<br>'+'(星期'+this.state.dataArray[$j]+')';
-            // }
-            this.setState({
-                stepsArray: parseInt(this.state.stepsArray),
-                sleepHourTotal: Number(((this.state.sleepHourArray * 60 + this.state.sleepMinArray) / 60).toFixed(2)),
-                topSchoolPersent: Number((this.state.rankSchoolArray / this.state.numPlayersSchoolArray * 100).toFixed(2)),
-                topTotalPersent: Number((this.state.rankUnivArray / this.state.numPlayersArray * 100).toFixed(2)),
-                xAxisArray: this.state.weekArray + '<br>(\u661F\u671F' + this.state.dataArray + ')'
-            });
-            var config = {
-                credits: {
-                    enabled: false //不显示LOGO 
-                },
-                title: {
-                    text: '最近一周步数情况和睡眠情况',
-                    labels: {
-                        style: {
-                            fontSize: '30px'
-                        }
-                    }
-                },
-                xAxis: {
-                    categories: this.state.xAxisArray,
-                    labels: {
-                        style: {
-                            // fontWeight:'bold',
-                            fontSize: '18px',
-                            color: 'black'
+      var stepsArray = data.stepsArray.map(function (item, index, array) {
+        return parseInt(item);
+      });
 
-                        }
-                    }
-                },
-                yAxis: [{
-                    title: {
-                        text: '步数',
-                        style: {
-                            color: 'black',
-                            fontSize: '18px'
-                        }
-                    },
-                    labels: {
-                        format: '{value} 步',
-                        style: {
-                            color: 'black',
-                            // fontWeight:'bold',
-                            fontSize: '18px'
-                        }
-                    }
+      for (var _$j = 0; _$j < data.stepsArray.length; _$j++) {
+        //利用匿名函数模仿块级作用域
+        xAxisArray[_$j] = data.weekArray[_$j] + '<br>' + '(星期' + data.dateArray[_$j] + ')';
+      }
 
-                }, {
-                    title: {
-                        text: '睡眠情况',
-                        style: {
-                            color: 'black',
-                            fontSize: '18px'
-                        }
+      // const stepsArray=parseInt(this.state.data.stepsArray);
+      // const sleepHourTotal=Number(((this.state.data.sleepHourArray*60+this.state.data.sleepMinArray)/60).toFixed(2));
+      // const topSchoolPersent=Number(((this.state.data.rankSchoolArray/this.state.data.numPlayersSchoolArray*100).toFixed(2)));
+      // const topTotalPersent=Number(((this.state.data.rankUnivArray/this.state.data.numPlayersArray*100).toFixed(2)));
+      // const xAxisArray= `${this.state.data.weekArray}<br>(星期${this.state.data.dataArray})`;
+      // })
+      var config = {
+        credits: {
+          enabled: false //不显示LOGO 
+        },
+        title: {
+          text: '最近一周步数情况和睡眠情况',
+          labels: {
+            style: {
+              fontSize: '30px'
+            }
+          }
+        },
+        xAxis: {
+          categories: xAxisArray,
+          labels: {
+            style: {
+              // fontWeight:'bold',
+              fontSize: '18px',
+              color: 'black'
 
-                    },
-                    labels: {
-                        format: '{value} h',
-                        style: {
-                            color: 'black',
-                            fontSize: '18px'
-                        }
-                    },
-                    opposite: true
+            }
+          }
+        },
+        yAxis: [{
+          title: {
+            text: '步数',
+            style: {
+              color: 'black',
+              fontSize: '18px'
+            }
+          },
+          labels: {
+            format: '{value} 步',
+            style: {
+              color: 'black',
+              // fontWeight:'bold',
+              fontSize: '18px'
+            }
+          }
 
-                }],
+        }, {
+          title: {
+            text: '睡眠情况',
+            style: {
+              color: 'black',
+              fontSize: '18px'
+            }
 
-                legend: {
-                    layout: 'vertical',
-                    align: 'left',
-                    x: 120,
-                    verticalAlign: 'top',
-                    y: 20,
-                    floating: true,
-                    backgroundColor: ReactHighcharts.theme && ReactHighcharts.theme.legendBackgroundColor || '#FFFFFF',
-                    labels: {
-                        style: {
-                            fontSize: '18px'
-                        }
-                    }
-                },
-                plotOptions: {
-                    spline: {
-                        dataLabels: {
-                            enabled: true
-                        }
+          },
+          labels: {
+            format: '{value} h',
+            style: {
+              color: 'black',
+              fontSize: '18px'
+            }
+          },
+          opposite: true
 
-                    }
+        }],
 
-                },
-                tooltip: {
-                    // shared:true,
-                    // crosshairs:[true,true],
+        legend: {
+          layout: 'vertical',
+          align: 'left',
+          x: 120,
+          verticalAlign: 'top',
+          y: 20,
+          floating: true,
+          backgroundColor: ReactHighcharts.theme && ReactHighcharts.theme.legendBackgroundColor || '#FFFFFF',
+          labels: {
+            style: {
+              fontSize: '18px'
+            }
+          }
+        },
+        plotOptions: {
+          spline: {
+            dataLabels: {
+              enabled: true
+            }
 
-                    style: {
-                        fontSize: '18px'
-                    },
+          }
 
-                    formatter: function formatter() {
-                        // alert($i);
-                        var $index = this.point.index;
-                        if (this.series.name == '步数') {
+        },
+        tooltip: {
+          // shared:true,
+          // crosshairs:[true,true],
 
-                            return this.state.xAxisArray[$index] + '<br>' + '步数: ' + this.state.stepsArray[$index] + '步' + '<br>' + '单位排名: top' + this.state.topSchoolPersent[$index] + '%' + '<br>' + '学校排名: top' + this.state.topTotalPersent[$index] + '%';
-                        } else {
-                            return this.state.xAxisArray[$index] + '<br>' + '睡眠情况: ' + this.y + 'h';
-                        }
-                    } },
-                series: [{
+          style: {
+            fontSize: '18px'
+          },
 
-                    name: '步数',
-                    type: 'spline',
-                    yAxis: 0,
+          formatter: function formatter() {
+            // alert($i);
+            var $index = this.point.index;
+            if (this.series.name == '步数') {
 
-                    dataLabels: {
-                        enabled: true,
-                        style: {
-                            fontSize: '18px'
-                        }
-                        // formatter:function(){
-                        // 	 var $i=this.point.index;
-                        // 	 return $steps_array[$i]+'步'+'<br>'+'单位排名: top'+$top_school_persent[$i]+'%';
-                    },
+              return xAxisArray[$index] + '<br>' + '步数: ' + stepsArray[$index] + '步' + '<br>' + '单位排名: top' + topSchoolPersent[$index] + '%' + '<br>' + '学校排名: top' + topTotalPersent[$index] + '%';
+            } else {
+              return xAxisArray[$index] + '<br>' + '睡眠情况: ' + this.y + 'h';
+            }
+          }
+        },
+        series: [{
 
-                    // data: [Number($steps_array[5]),$steps_array[5],$steps_array[2],$steps_array[3],$steps_array[4],$steps_array[5],$steps_array[6]]
-                    data: this.state.stepsArray
-                }, {
+          name: '步数',
+          type: 'spline',
+          yAxis: 0,
 
-                    name: '睡眠情况',
-                    type: 'spline',
-                    yAxis: 1,
-                    data: this.state.sleepHourTotal,
-                    dataLabels: {
-                        style: {
-                            fontSize: '18px'
-                        }
+          dataLabels: {
+            enabled: true,
+            style: {
+              fontSize: '18px'
+            }
+            // formatter:function(){
+            // 	 var $i=this.point.index;
+            // 	 return $steps_array[$i]+'步'+'<br>'+'单位排名: top'+$top_school_persent[$i]+'%';
+          },
 
-                    }
-                    // tooltip:{
-                    //     enabled:false,
-                    // 	valueSuffix:'h'
-                    //        }
-                }]
+          // data: [Number($steps_array[5]),$steps_array[5],$steps_array[2],$steps_array[3],$steps_array[4],$steps_array[5],$steps_array[6]]
+          data: stepsArray
+        }, {
 
-            };
-            return _React2.default.createElement(ReactHighcharts, { config: config });
-        }
-    }]);
+          name: '睡眠情况',
+          type: 'spline',
+          yAxis: 1,
+          data: sleepHourTotal,
+          dataLabels: {
+            style: {
+              fontSize: '18px'
+            }
 
-    return WeekStepsSleep;
+          }
+          // tooltip:{
+          //     enabled:false,
+          // 	valueSuffix:'h'
+          //        }
+        }]
+
+      };
+      return _React2.default.createElement(ReactHighcharts, { config: config });
+    }
+  }]);
+
+  return WeekStepsSleep;
 }(_React2.default.Component);
 
 exports.default = WeekStepsSleep;
@@ -30960,6 +30977,749 @@ this,d=a.yAxis,e=d.center,c=a.options,t=a.chart.renderer,g=c.overshoot,h=v(g)?g/
 d.endAngleRad);"none"===q&&(q=b.color||a.color||"none");"none"!==q&&(b.color=q);k=Math.max(r-h,Math.min(n+h,k));!1===c.wrap&&(k=Math.max(r,Math.min(n,k)));r=Math.min(k,a.thresholdAngleRad);k=Math.max(k,a.thresholdAngleRad);k-r>2*Math.PI&&(k=r+2*Math.PI);b.shapeArgs=p={x:e[0],y:e[1],r:m,innerR:p,start:r,end:k,rounded:c.rounded};b.startR=m;g?(b=p.d,g.animate(f.extend({fill:q},p)),b&&(p.d=b)):(b.graphic=t.arc(p).addClass("highcharts-point").attr({fill:q,"sweep-flag":0}).add(a.group),"square"!==c.linecap&&
 b.graphic.attr({"stroke-linecap":"round","stroke-linejoin":"round"}),b.graphic.attr({stroke:c.borderColor||"none","stroke-width":c.borderWidth||0}))})},animate:function(a){a||(this.startAngleRad=this.thresholdAngleRad,f.seriesTypes.pie.prototype.animate.call(this,a))}})})(l)});
 
+
+/***/ }),
+/* 592 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _style2 = __webpack_require__(275);
+
+var _table = __webpack_require__(274);
+
+var _table2 = _interopRequireDefault(_table);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _React = __webpack_require__(75);
+
+var _React2 = _interopRequireDefault(_React);
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var columns = [{ title: '历史', dataIndex: 'history' }, { title: '步数', dataIndex: 'steps' }, { title: '单位排名', dataIndex: 'schoolRank' }, { title: '学校排名', dataIndex: 'Rank' }, { title: '睡眠时间', dataIndex: 'sleepTime' }];
+
+var Average = function (_React$Component) {
+	_inherits(Average, _React$Component);
+
+	function Average() {
+		_classCallCheck(this, Average);
+
+		var _this = _possibleConstructorReturn(this, (Average.__proto__ || Object.getPrototypeOf(Average)).call(this));
+
+		_this.state = {
+			data: {}
+		};
+		return _this;
+	}
+
+	_createClass(Average, [{
+		key: 'request',
+		value: function request() {
+			var _this2 = this;
+
+			$.post('../public/week_data.php', function (data) {
+				_this2.setState({
+					data: data
+				});
+			}, 'json');
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			this.request();
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var sleepTime = this.state.data.sleepHour + '\u5C0F\u65F6' + this.state.data.sleepMin + '\u5206\u949F';
+			var data = [{ key: '1', history: '平均', steps: this.state.data.steps, schoolRank: this.state.data.rankSchoolText, Rank: this.state.data.rankText, sleepTime: sleepTime }];
+			return _React2.default.createElement(_table2.default, { pagination: false, dataSource: data, columns: columns });
+		}
+	}]);
+
+	return Average;
+}(_React2.default.Component);
+
+exports.default = Average;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(72)))
+
+/***/ }),
+/* 593 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _style4 = __webpack_require__(248);
+
+var _dropdown = __webpack_require__(154);
+
+var _dropdown2 = _interopRequireDefault(_dropdown);
+
+var _style5 = __webpack_require__(252);
+
+var _icon = __webpack_require__(46);
+
+var _icon2 = _interopRequireDefault(_icon);
+
+var _style6 = __webpack_require__(254);
+
+var _menu = __webpack_require__(156);
+
+var _menu2 = _interopRequireDefault(_menu);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _reactRouterDom = __webpack_require__(73);
+
+var _rankAll = __webpack_require__(596);
+
+var _rankAll2 = _interopRequireDefault(_rankAll);
+
+var _rankSchool = __webpack_require__(594);
+
+var _rankSchool2 = _interopRequireDefault(_rankSchool);
+
+var _rankHistory = __webpack_require__(595);
+
+var _rankHistory2 = _interopRequireDefault(_rankHistory);
+
+var _rankSchoolAverage = __webpack_require__(600);
+
+var _rankSchoolAverage2 = _interopRequireDefault(_rankSchoolAverage);
+
+var _rankAverage = __webpack_require__(598);
+
+var _rankAverage2 = _interopRequireDefault(_rankAverage);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MenuItem = _menu2.default.Item;
+
+var RankMenu = function (_React$Component) {
+	_inherits(RankMenu, _React$Component);
+
+	function RankMenu() {
+		_classCallCheck(this, RankMenu);
+
+		return _possibleConstructorReturn(this, (RankMenu.__proto__ || Object.getPrototypeOf(RankMenu)).apply(this, arguments));
+	}
+
+	_createClass(RankMenu, [{
+		key: 'render',
+		value: function render() {
+			var menu1 = _react2.default.createElement(
+				_menu2.default,
+				null,
+				_react2.default.createElement(
+					MenuItem,
+					null,
+					_react2.default.createElement(
+						_reactRouterDom.Link,
+						{ to: '/rankAll' },
+						'\u5B9E\u65F6\u6392\u540D'
+					)
+				),
+				_react2.default.createElement(
+					MenuItem,
+					null,
+					_react2.default.createElement(
+						_reactRouterDom.Link,
+						{ to: '/rankAll' },
+						'\u5E73\u5747\u6B65\u6570\u6392\u540D'
+					)
+				)
+			);
+			var menu2 = _react2.default.createElement(
+				_menu2.default,
+				null,
+				_react2.default.createElement(
+					MenuItem,
+					null,
+					_react2.default.createElement(
+						_reactRouterDom.Link,
+						{ to: '/rankSchool' },
+						'\u5B9E\u65F6\u6392\u540D'
+					)
+				),
+				_react2.default.createElement(
+					MenuItem,
+					null,
+					_react2.default.createElement(
+						_reactRouterDom.Link,
+						{ to: '/rankSchoolAverage' },
+						'\u5E73\u5747\u6B65\u6570\u6392\u540D'
+					)
+				)
+			);
+			return _react2.default.createElement(
+				_reactRouterDom.HashRouter,
+				null,
+				_react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'h2',
+						null,
+						'\u6392\u540D'
+					),
+					_react2.default.createElement(
+						_dropdown2.default,
+						{ overlay: menu1 },
+						_react2.default.createElement(
+							'span',
+							{ className: 'ant-dropdown-link' },
+							'\u5168\u6821',
+							_react2.default.createElement(_icon2.default, { type: 'down' })
+						)
+					),
+					_react2.default.createElement(
+						_dropdown2.default,
+						{ overlay: menu2 },
+						_react2.default.createElement(
+							'span',
+							{ className: 'ant-dropdown-link' },
+							'\u5355\u4F4D',
+							_react2.default.createElement(_icon2.default, { type: 'down' })
+						)
+					),
+					_react2.default.createElement(
+						'a',
+						{ className: 'ant-dropdown-link', href: '#/rankHistory' },
+						'\u5386\u53F2',
+						_react2.default.createElement(_icon2.default, { type: 'down' })
+					),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/rankAll', Component: 'RankAll' }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/rankSchool', Component: 'RankSchool' }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/rankHistory', Component: 'RankHistory' }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: '/rankSchool', Component: 'RankSchool' }),
+					_react2.default.createElement(_reactRouterDom.Route, { path: './rankSchoolAverage', Component: 'RankSchoolAverage' })
+				)
+			);
+		}
+	}]);
+
+	return RankMenu;
+}(_react2.default.Component);
+
+exports.default = RankMenu;
+// <Dropdown overlay={menu1}>
+// <a className="ant-dropdown-link" href="#/rankAll">全校<Icon type='down' /></a>
+// </Dropdown>
+// <Dropdown overlay={menu2}>
+// <a className="ant-dropdown-link" href="#/rankSchool">单位<Icon type='down' /></a>
+// </Dropdown>
+// <Dropdown overlay={menu3}>
+// <a className="ant-dropdown-link" href="#/rankHistory">历史<Icon type='down' /></a>
+// </Dropdown>
+
+// <Link to='/rankAll'>全校</Link><Icon type='down' />
+
+/***/ }),
+/* 594 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var RankSchool = function (_React$Component) {
+	_inherits(RankSchool, _React$Component);
+
+	function RankSchool() {
+		_classCallCheck(this, RankSchool);
+
+		return _possibleConstructorReturn(this, (RankSchool.__proto__ || Object.getPrototypeOf(RankSchool)).apply(this, arguments));
+	}
+
+	_createClass(RankSchool, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				'rankSchool'
+			);
+		}
+	}]);
+
+	return RankSchool;
+}(_react2.default.Component);
+
+exports.default = RankSchool;
+
+/***/ }),
+/* 595 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var RankHistory = function (_React$Component) {
+	_inherits(RankHistory, _React$Component);
+
+	function RankHistory() {
+		_classCallCheck(this, RankHistory);
+
+		return _possibleConstructorReturn(this, (RankHistory.__proto__ || Object.getPrototypeOf(RankHistory)).apply(this, arguments));
+	}
+
+	_createClass(RankHistory, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement(
+				'div',
+				null,
+				'RankHistory'
+			);
+		}
+	}]);
+
+	return RankHistory;
+}(_react2.default.Component);
+
+exports.default = RankHistory;
+
+/***/ }),
+/* 596 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _style2 = __webpack_require__(275);
+
+var _table = __webpack_require__(274);
+
+var _table2 = _interopRequireDefault(_table);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var columns1 = [{ title: '名次', dataIndex: 'ranking' }, { title: '姓名', dataIndex: 'name' }, { title: '步数', dataIndex: 'steps' }];
+
+var RankAll = function (_React$Component) {
+	_inherits(RankAll, _React$Component);
+
+	function RankAll() {
+		_classCallCheck(this, RankAll);
+
+		var _this = _possibleConstructorReturn(this, (RankAll.__proto__ || Object.getPrototypeOf(RankAll)).call(this));
+
+		_this.state = {
+			rankList: []
+		};
+		console.log('haha');
+		return _this;
+	}
+
+	_createClass(RankAll, [{
+		key: 'request',
+		value: function request() {
+			var _this2 = this;
+
+			$.post('../public/basic_data.php', function (data) {
+				_this2.setState({
+					rankList: data.rankList
+				});
+				// console.log(typeof this.state.rankList);
+			}, 'json');
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			this.request();
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var data = [];
+			var rankList = this.state.rankList;
+			var index = 1;
+			for (var i in rankList) {
+				if (rankList.hasOwnProperty(i)) {
+					data.push({
+						key: index,
+						ranking: index,
+						name: i,
+						steps: rankList[i]
+					});
+					index += 1;
+				}
+			}
+
+			// }
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_table2.default, { pagination: false, columns: columns1, dataSource: data, size: 'middle' })
+			);
+		}
+	}]);
+
+	return RankAll;
+}(_react2.default.Component);
+
+exports.default = RankAll;
+// <Table columns={column1} data={data1}>
+// 		</Table>
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(72)))
+
+/***/ }),
+/* 597 */,
+/* 598 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _style2 = __webpack_require__(275);
+
+var _table = __webpack_require__(274);
+
+var _table2 = _interopRequireDefault(_table);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var columns1 = [{ title: '名次', dataIndex: 'ranking' }, { title: '姓名', dataIndex: 'name' }, { title: '步数', dataIndex: 'steps' }];
+
+var RankAverage = function (_React$Component) {
+	_inherits(RankAverage, _React$Component);
+
+	function RankAverage() {
+		_classCallCheck(this, RankAverage);
+
+		var _this = _possibleConstructorReturn(this, (RankAverage.__proto__ || Object.getPrototypeOf(RankAverage)).call(this));
+
+		_this.state = {
+			data: {}
+		};
+		return _this;
+	}
+
+	_createClass(RankAverage, [{
+		key: 'request',
+		value: function request() {
+			var _this2 = this;
+
+			$.post('../public/ranking_average.php', function (data) {
+				_this2.setState({
+					data: data
+				});
+			}, 'json');
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			this.request();
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var dataSource_ = [];
+			var dataSource = [];
+			var data = this.state.data;
+			var index = 1;
+
+			for (var i in data.rankList) {
+				if (data.rankList.hasOwnProperty(i)) {
+					if (data.nameList[i].length <= 2 || data.numdays[i] == 0) {
+						continue;
+					} else {
+						dataSource_.push({
+							// key:index,
+							// ranking:index,
+							name: data.nameList[i],
+							// school:data.schoolList[i],
+							steps: data.rankList[i]
+						});
+					}
+				}
+			}
+			dataSource_.sort(function (o1, o2) {
+				return o2.steps - o1.steps;
+			});
+			for (var i = 0; i < dataSource_.length; i++) {
+				dataSource.push({
+					key: index,
+					ranking: index,
+					name: dataSource_[i].name,
+					steps: dataSource_[i].steps
+
+				});
+				index += 1;
+			}
+
+			// console.log(dataSource);
+
+			// }
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_table2.default, { pagination: false, columns: columns1, dataSource: dataSource, size: 'middle' })
+			);
+		}
+	}]);
+
+	return RankAverage;
+}(_react2.default.Component);
+
+exports.default = RankAverage;
+// <Table columns={column1} data={data1}>
+// 		</Table>
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(72)))
+
+/***/ }),
+/* 599 */,
+/* 600 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _style2 = __webpack_require__(275);
+
+var _table = __webpack_require__(274);
+
+var _table2 = _interopRequireDefault(_table);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var columns1 = [{ title: '名次', dataIndex: 'ranking' }, { title: '姓名', dataIndex: 'name' }, { title: '步数', dataIndex: 'steps' }];
+
+var RankSchoolAverage = function (_React$Component) {
+	_inherits(RankSchoolAverage, _React$Component);
+
+	function RankSchoolAverage() {
+		_classCallCheck(this, RankSchoolAverage);
+
+		var _this = _possibleConstructorReturn(this, (RankSchoolAverage.__proto__ || Object.getPrototypeOf(RankSchoolAverage)).call(this));
+
+		_this.state = {
+			data: {},
+			school: ''
+		};
+		return _this;
+	}
+
+	_createClass(RankSchoolAverage, [{
+		key: 'request',
+		value: function request() {
+			var _this2 = this;
+
+			$.post('../public/account.php', function (data) {
+				_this2.setState({
+					school: data.school
+				});
+			}, 'json');
+			// var filename=`../public/ranking_average${this.state.school}.php`;
+			var filename = '../public/ranking_average?s=' + this.state.school + '.php';
+			$.post(filename, function (data) {
+				_this2.setState({
+					data: data
+				});
+			}, 'json');
+		}
+	}, {
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			this.request();
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var dataSource_ = [];
+			var dataSource = [];
+			var data = this.state.data;
+			var index = 1;
+
+			for (var i in data.rankList) {
+				if (data.rankList.hasOwnProperty(i)) {
+					if (data.nameList[i].length <= 2 || data.numdays[i] == 0) {
+						continue;
+					} else {
+						dataSource_.push({
+							// key:index,
+							// ranking:index,
+							name: data.nameList[i],
+							// school:data.schoolList[i],
+							steps: data.rankList[i]
+						});
+					}
+				}
+			}
+			dataSource_.sort(function (o1, o2) {
+				return o2.steps - o1.steps;
+			});
+			for (var i = 0; i < dataSource_.length; i++) {
+				dataSource.push({
+					key: index,
+					ranking: index,
+					name: dataSource_[i].name,
+					steps: dataSource_[i].steps
+
+				});
+				index += 1;
+			}
+
+			// console.log(dataSource);
+
+			// }
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				_react2.default.createElement(_table2.default, { pagination: false, columns: columns1, dataSource: dataSource, size: 'middle' })
+			);
+		}
+	}]);
+
+	return RankSchoolAverage;
+}(_react2.default.Component);
+
+exports.default = RankSchoolAverage;
+// <Table columns={column1} data={data1}>
+// 		</Table>
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(72)))
 
 /***/ })
 ],[279]);
